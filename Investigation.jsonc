@@ -1,0 +1,90 @@
+{
+  "name": "Investigation",
+  "type": "object",
+  "properties": {
+    "incident_id": {
+      "type": "string",
+      "description": "Linked incident ID"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Local Investigation",
+        "Company Investigation"
+      ],
+      "description": "Investigation type"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Initiated",
+        "In Progress",
+        "Report Pending",
+        "Report Sent",
+        "Completed",
+        "Cancelled"
+      ],
+      "default": "Initiated",
+      "description": "Investigation status"
+    },
+    "initiated_by": {
+      "type": "string",
+      "description": "Manager/role who initiated"
+    },
+    "initiated_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "report_due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Report must be submitted by this date"
+    },
+    "report_sent_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "team_members": {
+      "type": "array",
+      "description": "Investigation team members",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "is_independent": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary / findings"
+    },
+    "report_url": {
+      "type": "string",
+      "description": "Link to investigation report (names replaced with roles/IP)"
+    },
+    "regulatory_reporting_required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Must be reported to authorities"
+    },
+    "regulatory_reported_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "incident_id",
+    "type"
+  ]
+}
