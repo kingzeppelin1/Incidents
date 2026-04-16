@@ -10,7 +10,6 @@ import {
   LogOut,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { base44 } from '@/api/base44Client';
 
 const NAV_ITEMS = [
   { path: '/Dashboard', label: 'Dashboard', icon: LayoutDashboard },
